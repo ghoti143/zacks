@@ -37,7 +37,7 @@ async function getZacksData(symbols) {
  
 async function fillTable() {
   let table = document.getElementById("stocks");  
-  let data = await getZacksData(symbols).json();
+  let data = await getZacksData(symbols);
   
   for(const symbol of symbols) {
     let newRow = table.insertRow();
