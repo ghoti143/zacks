@@ -37,10 +37,10 @@ var table = document.getElementById("stocks");
 
 
 symbols.forEach(function(symbol) {
-  var newRow = table.insertRow(0);
+  var newRow = table.insertRow();
   var symbolRow = newRow.insertCell(0);
   var zacksRow = newRow.insertCell(1);
-  symbolRow.innerHTML = symbol;
+  symbolRow.innerHTML = '<a href="https://www.zacks.com/stock/quote/' + symbol + '">' + symbol + '</a>';
   zacksRow.innerHTML = "";
 });
   
