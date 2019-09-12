@@ -20,29 +20,31 @@
 
 <script>
 
-async function getZacksData(symbol) {
-  let response = await fetch(`https://quote-feed.zacks.com/index.php?t=${symbol}`);
-  let data = await response.json();
-  return data[symbol].zacks_rank + " - " + data[symbol].zacks_rank_text;
-};
-  
-var symbols = [
+let symbols = [
   'NX',
   'ECOM',
   'CPIX',
   'CASH',
   'AIN'
 ];
+  
+async function getZacksData(symbols) {
+  let response = await fetch(`https://quote-feed.zacks.com/index.php?t=${symbols.join(',')}`);
+  let data = await response.json();
+  return data;
+};
+  
  
 async function fillTable() {
-  var table = document.getElementById("stocks"); 
+  let table = document.getElementById("stocks");  
+  let data = await getZacksData(symbols).json();
   
   for(const symbol of symbols) {
-    var newRow = table.insertRow();
-    var symbolRow = newRow.insertCell(0);
-    var zacksRow = newRow.insertCell(1);  
+    let newRow = table.insertRow();
+    let symbolRow = newRow.insertCell(0);
+    let zacksRow = newRow.insertCell(1);  
     symbolRow.innerHTML = `<a href="https://www.zacks.com/stock/quote/${symbol}">${symbol}</a>`;
-    zacksRow.innerHTML = await getZacksData(symbol);  
+    zacksRow.innerHTML = data[symbol].zacks_rank + " - " + data[symbol].zacks_rank_text;
   }
 };  
 
