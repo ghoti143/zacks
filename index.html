@@ -19,7 +19,7 @@
 </table>
 
 <script>
-async getZacksData(symbol) => {
+async function getZacksData(symbol) {
   let response = await fetch(`https://quote-feed.zacks.com/index.php?t=${symbol}`);
   let data = await response.json();
   return data[symbol].zacks_rank + " - " + data[symbol].zacks_rank_text;
