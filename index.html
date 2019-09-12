@@ -19,6 +19,8 @@
 </table>
 
 <script>
+(async () => {
+
 async function getZacksData(symbol) {
   let response = await fetch(`https://quote-feed.zacks.com/index.php?t=${symbol}`);
   let data = await response.json();
@@ -43,7 +45,8 @@ symbols.forEach(function(symbol) {
   symbolRow.innerHTML = `<a href="https://www.zacks.com/stock/quote/${symbol}">${symbol}</a>`;
   zacksRow.innerHTML = await getZacksData(symbol);  
 });
-  
+
+}())
 </script>
 </body>
 </html>
