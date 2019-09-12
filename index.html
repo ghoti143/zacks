@@ -39,13 +39,13 @@ async function fillTable() {
   let table = document.getElementById("stocks");  
   let data = await getZacksData(symbols);
   
-  for(const symbol of symbols) {
+  symbols.forEach(symbol => {
     let newRow = table.insertRow();
     let symbolRow = newRow.insertCell(0);
     let zacksRow = newRow.insertCell(1);  
     symbolRow.innerHTML = `<a href="https://www.zacks.com/stock/quote/${symbol}">${symbol}</a>`;
     zacksRow.innerHTML = data[symbol].zacks_rank + " - " + data[symbol].zacks_rank_text;
-  }
+  });
 };  
 
 fillTable();
