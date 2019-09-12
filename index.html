@@ -4,17 +4,46 @@
 
 <!-- Set the viewport width to device width for mobile -->
 <meta name="viewport" content="width=device-width" />
+<title>Zacks</title>
+</head>
+<body>
+<table id="stocks">
+  <tr>
+    <td>
+      Symbol
+    </td>
+    <td>
+      Zacks Rank
+    </td>    
+  </tr>  
+</table>
+
 <script>
 (async () => {
   let response = await fetch('https://quote-feed.zacks.com/index.php?t=CPIX');
   let foo = await response.json();
   console.log(foo);
 })();
-</script>
   
-<title>Zacks</title>
-</head>
-<body>
-<h1>Hello Zack</h1>
+var symbols = [
+  'NX',
+  'ECOM',
+  'CPIX',
+  'CASH',
+  'AIN'
+];
+ 
+var table = document.getElementById("stocks"); 
+
+
+symbols.forEach(function(symbol) {
+  var newRow = table.insertRow(0);
+  var symbolRow = newRow.insertCell(0);
+  var zacksRow = newRow.insertCell(1);
+  symbolRow.innerHTML = symbol;
+  zacksRow.innerHTML = "";
+});
+  
+</script>
 </body>
 </html>
