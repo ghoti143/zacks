@@ -21,11 +21,7 @@
 <script>
 
 let symbols = [
-  'NX',
-  'ECOM',
-  'CPIX',
-  'CASH',
-  'AIN'
+  'SHLM','ACMR','ADAM','AAII','AAON','ABAX','AANB','ABBC','ABMD','AXAS','ABII','ACTG','ACAD','ACCL','CIDM','ANCX','AUSA','ARAY','ACGY','ACHN','ACIW','APKT','ACOR','ACTL','ACTS','ACPW','ACTI','ATVI','ACTU','ACUR','ACXM','ADES','ADGF','ADPT','ADCT','AEY','ADBE','ADLR','ADTN','AATI','ABAT','AEIS','ADVNB','ADVNA','AVCA','AEHR','AEPI','AVAV','AEZS','AFFM','AFFY','AFFX','ATAC','FEED','AGYS','AIRM','AIRT','ATSG','AMCN','AIRN','AIRV','AIXG','AKAM','AKNS','AKRX','TRMD','ALDN','ALSK','AMRI','ALDA','ALXN','ALXA','ACEL','ALCO','ALGN','ALKS','ALGT','ABVA','AFOP','ALNC','AHGP','ARLP','AHPI','AHCI','AMOT','ALLI','ALTH','ALLT','ALOY','MDRX','AFAM','ALNY','ATEC','ALTI','ALTR','AIMC','ALTU','AMAG','AMRN','AMZN','EPAX','AMIE','AMFI','AMED','UHAL','ATAX','AMOV','ASGR','ABNJ','AGNC','ACAS','AMCE','ACBA','ACLI','ADPI','ECOL','AETI','AMIC','AMIN','AIPC','AMAC','AMMD','AMNB','ANAT','APFC','ACAP','AMPH','APEI','ARII','AMRB','ASEI','AMSWA','AMSC','ATCO','AMWD','CRMT','ARGN','ABCB','AMSF','ASRV','ASRVP','ASCA','AMTC','AMTY','ATLO','AMGN','AMCS','FOLD','AMKR','AMPL','AMSG','ASYS','AFSI','AMLN','ANAD','ANDS','ALOG','ANLY','ANEN','ABCW','ANGN','ANGO','ANPI','ANIK','AHII','ANNB','ANSW','ANSS','AGEN','APAC','APOG','APOL','AAPL','ARCI','AERG','AMAT','AMCC','APSG','AREX','ARSD','ARBX','ARCW','ABIO','ACGL','ACAT','RDEA','ARDNA','ARNA','STST','AGII','ARIA','ARBA','RAMS','ARKR','ABFS','ARMH','ARTX','ARQL','ARRY','ARRS','AROW','ARWR','ARTG','ARTNA','ARTW','ASCMA','ASTIZ','ASIA','ASMI','ASML','ASPM','APPY','AACC','ASFI','ATEA','ASTE','ALOT','ATRO','ATAI','ATHN','ATHR','ATHX','AAME','ATBC','ACFC','ASFN','ATNI','AAWW','ATLS','ATML','ATMI','ATPG','ATRC','ATRI','ATSI','AUBN','AUDC','VOXX','AUTH','ABTL','ADSK','ADP','AVRX','AVNX','AVTR','AVII','AVID','AVGN','AVZA','AVCT','AWRE','ACLS','AXYS','AXTI'
 ];
   
 async function getZacksData(symbols) {
@@ -44,7 +40,11 @@ async function fillTable() {
     let symbolRow = newRow.insertCell(0);
     let zacksRow = newRow.insertCell(1);  
     symbolRow.innerHTML = `<a href="https://www.zacks.com/stock/quote/${symbol}">${symbol}</a>`;
-    zacksRow.innerHTML = data[symbol].zacks_rank + " - " + data[symbol].zacks_rank_text;
+    if(data[symbol].hasOwnProperty('zacks_rank') && data[symbol].zacks_rank.length > 0) {
+      zacksRow.innerHTML = data[symbol].zacks_rank + " - " + data[symbol].zacks_rank_text;
+    } else {
+      zacksRow.innerHTML = "N/A";
+    }
   });
 };  
 
