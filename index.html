@@ -50,10 +50,14 @@ let symbols = {
   'C': ['CHRW','CA','CCMP','CDNS','CADE','CADX','CDZI','CALM','CLMS','CAMP','CVGW','CALC','CFNB','CAMD','CPKI','CALP','CALD','CALL','CLMT','CAFI','CAC','CAMT','CSIQ','CLZR','CPHC','CAPE','CPLA','CBKN','CCBG','CCPCN','CPLP','CSWC','CFFN','CPST','CSAR','CSCX','CRDC','CFNL','CDIC','BEAT','CSII','CATM','CECO','CBOU','CKEC','CLBH','CART','CRZO','CRRB','TAST','CARV','CASM','CACB','CASB','CSCD','CWST','CASY','CASS','CPHL','CMRG','CHSI','CPRX','CATT','CATY','CVCO','CAVM','CBEY','CBRL','CHINA','CFK','CECE','CLDN','CRA','CELG','CEGE','CTIC','CLDX','CLSN','CYCL','CNBC','CLFC','CSFL','CEBK','CEDC','CETV','CFBK','CENTA','CENT','CJBK','CVCY','CVBK','TRUE','CENX','CNBKA','CNTY','CEPH','CPHD','CRDN','CRNT','CERN','CERS','CEVA','CFFI','CITZ','CHMP','CYOU','CACAU','CACA','CTHR','SCHW','CHRS','GTLS','CHTR','CHRTR','CHRT','CHTT','CHKP','CHTP','CXSP','CHFC','CHKE','CHEV','CBNK','CAEI','CAAS','CBAK','CABL','CABLU','CDS','CDII','JRJC','CFSG','GRRF','CPBY','CIIC','CHIO','CMED','CHNR','CPSL','CSKI','CSUN','CNTF','CTDC','CTFO','CHBT','CASTU','CEDU','CHDX','IMOS','CHRD','CHDN','CIEN','CINF','CTAS','CRUS','CSCO','CTRN','PLJC','CZNC','CZWI','CZFC','CTZN','CIZN','CRBC','CSBC','CTXS','CTBK','CHCO','CTEL','CKXE','CLRT','CWEI','CLNE','CLFD','CLRO','CLWR','CLWRD','CBLI','CKSW','CSBK','CLDA','CME','CMSB','CCNE','CISG','COBZ','COBR','COKE','CVLY','CCOI','CGNX','CTSH','COHR','COHU','CSTR','CWTR','CCIX','CLCT','COBK','CBAN','COLB','COLM','CMCO','CMRO','CBMX','CRXX','CMCSK','CMCSA','CCBP','CBSH','CMFB','CNAF','CVGI','CWBS','CTCH','JCS','CBON','CBNJ','CBIN','CPBK','CCBD','CFFC','CPBC','CSHB','CTBI','CWBC','CVLT','CODI','CCRT','CGEN','CPSI','CTGX','CPWR','SCOR','CHCI','CITP','COGO','CMTL','COMV','CPTS','CNQR','CNXT','CNMD','CTWS','CONN','CNLG','CNLGD','CNSL','CWCO','CTCT','CNST','CPSS','CNVR','COINZ','COOP','CPNO','CPRT','CNIC','CORT','CORE','CREL','CRGI','COCO','CRTX','CRVL','COSI','CPWM','CSGP','COST','CGRB','CRRC','CVTI','COWN','CWLZ','CPEX','CPII','CRAI','CRAY','CACC','CRED','CREE','CSNT','CRFN','CRESY','CRMH','CROX','ATX','CCRN','XTXI','XTEX','CRWS','CRWN','CRXL','CRYP','CSGS','CSPI','CTCM','CTIB','CTRP','CMLS','CRGN','CRIS','CUTR','CVTX','CVBF','CVV','CYAN','CYBX','CYBE','CYBS','CYBI','CYCC','CYMI','CYNO','CYPB','CYTK','CYTX','CYTR']
 }
 
-const letters = Object.keys(symbols)
-for (const letter of letters) {
-  await fillTable(symbols[letter]);
-}
+async function start() {
+  const letters = Object.keys(symbols)
+  for (const letter of letters) {
+    await fillTable(symbols[letter]);
+  }
+};
+  
+start();
   
 </script>
 </body>
