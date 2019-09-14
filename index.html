@@ -19,13 +19,7 @@
 </table>
 
 <script>
-let symbols = [
-  'NX',
-  'ECOM',
-  'CPIX',
-  'CASH',
-  'AIN'
-];
+let symbols = ['GTE','TUES','UQM','LINC','IRIX','ARTX','UTSI','ACOR','SVM','EDAP','GNW','KGC','JCS','SMSI','LUNA','BVX','CASA','PCTI','EXTR','DAC','TIVO','PRPL','RDCM'];
   
 async function getZacksData(symbols) {
   let response = await fetch(`https://quote-feed.zacks.com/index.php?t=${symbols.join(',')}`);
