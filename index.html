@@ -19,7 +19,14 @@
 </table>
 
 <script>
-
+let symbols = [
+  'NX',
+  'ECOM',
+  'CPIX',
+  'CASH',
+  'AIN'
+];
+  
 async function getZacksData(symbols) {
   let response = await fetch(`https://quote-feed.zacks.com/index.php?t=${symbols.join(',')}`);
   let data = await response.json();
@@ -27,47 +34,19 @@ async function getZacksData(symbols) {
 };
   
  
-async function fillTable(set) {
+async function fillTable() {
   let table = document.getElementById("stocks");  
-  let data = await getZacksData(set);
+  let data = await getZacksData(symbols);
   
-  set.forEach(symbol => {
+  symbols.forEach(symbol => {
     let newRow = table.insertRow();
     let symbolRow = newRow.insertCell(0);
     let zacksRow = newRow.insertCell(1);  
     symbolRow.innerHTML = `<a href="https://www.zacks.com/stock/quote/${symbol}">${symbol}</a>`;
-    if(data[symbol].hasOwnProperty('zacks_rank') && data[symbol].zacks_rank.length > 0) {
-      zacksRow.innerHTML = data[symbol].zacks_rank + " - " + data[symbol].zacks_rank_text;
-    } else {
-      zacksRow.innerHTML = "N/A";
-    }
+    zacksRow.innerHTML = data[symbol].zacks_rank + " - " + data[symbol].zacks_rank_text;
   });
 };  
-  
-let letters = ['0','A','B','C','D','E','F','G','H','I.J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
-let lookups = [
-  'https://www.advfn.com/nasdaq/nasdaq.asp?companies=',
-  'https://www.advfn.com/nyse/newyorkstockexchange.asp?companies=',
-  'https://www.advfn.com/amex/americanstockexchange.asp?companies='
-]
-
-async function start() {
-  for (const letter of letters) {
-    
-    let nasdaq = await fetch(lookups[0] + letter);
-    console.log(response);
-    
-    let nyse = await fetch(lookups[1] + letter);
-    console.log(response);
-    
-    let amex = await fetch(lookups[2] + letter);
-    console.log(response);
-  }
-};
-  
-start();
-  
+fillTable();
 </script>
 </body>
 </html>
