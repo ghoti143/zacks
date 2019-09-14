@@ -53,7 +53,6 @@ let lookups = [
 ]
 
 async function start() {
-  const letters = Object.keys(symbols)
   for (const letter of letters) {
     
     let nasdaq = await fetch(lookups[0] + letter);
