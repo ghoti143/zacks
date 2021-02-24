@@ -1,8 +1,8 @@
 {
     "routes": [
         {
-            "route": "/foo",
-            "redirect": "https://google.com",
+            "route": "/gov",
+            "redirect": "https://airhub-sandbox.airspacelink.com/gov/",
             "statusCode": 301
         }
     ],
