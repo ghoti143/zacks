@@ -1,16 +1,5 @@
 {
-    "routes": [
-        {
-            "route": "/gov",
-            "redirect": "https://airhub-sandbox.airspacelink.com/gov/",
-            "statusCode": 301
-        },
-        {
-            "route": "/laanc",
-            "redirect": "https://airhub-sandbox.airspacelink.com/laanc/",
-            "statusCode": 301
-        }
-    ],
+    
     "navigationFallback": {
       "rewrite": "index.html"
     }    
